@@ -7,6 +7,7 @@ FILE=/home/jovyan/.aws/credentials
 echo "[uoa]" >> $FILE
 echo "aws_access_key_id=$AWS_ACCESS_KEY" >> $FILE
 echo "aws_secret_access_key=$AWS_SECRET_KEY" >> $FILE
+echo "region=us-east-1" >> $FILE
 export AWS_PROFILE="uoa"
 
 exec jupyter lab --no-browser --LabApp.token="" --LabApp.password=""

@@ -63,7 +63,10 @@ RUN pip install sensorfabric==0.1.4
 
 # Create the .aws directory to store credentials.
 RUN mkdir -p /home/jovyan/.aws/ && \
-	touch /home/jovyan/.aws/credentials
+	touch /home/jov
+
+# Copy over the examples folder into the image.
+COPY examples /home/jovyan/
 
 EXPOSE 8888
 
