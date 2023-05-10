@@ -46,7 +46,7 @@ RUN wget https://download3.rstudio.org/ubuntu-18.04/x86_64/shiny-server-1.5.20.1
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 USER jovyan
-WORKDIR /home/jovyan
+WORKDIR /home/jovyan/work
 
 # Install Jupyter Lab Proxy extensions (cards in Launcher)
 RUN mamba install --quiet --yes jupyter-rsession-proxy jupyter-server-proxy && \
@@ -61,12 +61,8 @@ RUN jupyter lab build
 # Install sensorfabric library for dataset access.
 RUN pip install sensorfabric==0.1.4
 
-# Create the .aws directory to store credentials.
-RUN mkdir -p /home/jovyan/.aws/ && \
-	touch /home/jovyan/credentials
-
 # Copy over the examples folder into the image.
-COPY examples /home/jovyan/
+COPY examples /home/jovyan/work/
 
 EXPOSE 8888
 
