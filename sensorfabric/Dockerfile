@@ -29,7 +29,8 @@ ARG PRIV_CMDS='/bin/ch*,/bin/cat,/bin/gunzip,/bin/tar,/bin/mkdir,/bin/ps,/bin/mv
 
 RUN usermod -aG sudo jovyan && \
     echo "$LOCAL_USER ALL=NOPASSWD: $PRIV_CMDS" >> /etc/sudoers
-RUN addgroup jovyan
+RUN usermod --uid 1310 jovyan
+RUN addgroup --gid 1310 jovyan
 RUN usermod -aG jovyan jovyan
 
 # Install RStudio
