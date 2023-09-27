@@ -60,7 +60,7 @@ COPY jupyter_notebook_config.json /opt/conda/etc/jupyter/jupyter_notebook_config
 RUN jupyter lab build
 
 # Install sensorfabric library for dataset access.
-RUN pip install sensorfabric==0.1.4
+RUN pip install sensorfabric==2.0.0
 
 # Copy over the examples folder into the image.
 COPY examples /home/jovyan/work/
